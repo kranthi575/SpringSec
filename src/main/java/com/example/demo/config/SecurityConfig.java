@@ -24,8 +24,8 @@ public class SecurityConfig {
 
 
         http.authorizeHttpRequests((requests)->requests.requestMatchers("/welcome").authenticated()
-                .requestMatchers("/home").permitAll());
-       http.formLogin(flc->flc.loginPage("/login").permitAll());
+                .requestMatchers("/home","/login").permitAll());
+       http.formLogin(flc->flc.loginPage("/login"));
        http.httpBasic(Customizer.withDefaults());
 
         return http.build();
